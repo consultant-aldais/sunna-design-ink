@@ -13,10 +13,6 @@ class PurchaseOrder(models.Model):
     date_done = fields.Date( string="Effective date")
 
 
-        
-    
-
-
 class StockPicking(models.Model):
     _inherit = 'stock.picking'
     

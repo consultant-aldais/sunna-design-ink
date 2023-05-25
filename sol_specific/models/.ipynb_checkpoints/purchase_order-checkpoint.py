@@ -23,6 +23,9 @@ class StockPicking(models.Model):
     # " SOL_2023.01 - DEV-02-AC-01-01 : Purchase_order.py > StockPicking > change_po_schedule_date(self)
     #A partir d'un transfert ""copié"" sa schedule date dans le PO associé "
     def change_po_scheduled_date(self):
+        _logger.info('------------------------')
+        _logger.info('change_po_scheduled_date %s et %s', self.scheduled_date, self.date_done)
+        _logger.info('------------------------')
         self.purchase_id.scheduled_date = self.scheduled_date
     
     #SOL_2023.01 - DEV-02-AC-01-02 : Purchase_order.py > StockPicking > change_po_date_done(self)
