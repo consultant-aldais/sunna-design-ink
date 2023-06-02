@@ -24,7 +24,9 @@ L'action ne se déclenche que pour les livraisons" -->
             <field name="trigger">on_write</field>
             <field name="active" eval="True"/>
             <field name="trigger_field_ids" eval="[(6,0, [ref('stock.field_stock_picking__scheduled_date'), ref('stock.field_stock_picking__scheduled_date')] )]"/>
+<!--
             <field name="filter_domain" eval="[['picking_type_code','=','outgoing']]"/>
+-->
             <field name="state">code</field>
             <field name="code">
 record.change_so_scheduled_date()
@@ -38,8 +40,10 @@ L'action ne se déclenche que pour les livraisons"-->
             <field name="model_id" ref="sol_specific.model_stock_picking"/>
             <field name="trigger">on_write</field>
             <field name="active" eval="True"/>
-            <field name="trigger_field_ids" eval="[(4, ref('stock.field_stock_picking__date_done'))]"/>
+            <field name="trigger_field_ids" eval="[(4, ref('sol_specific.field_stock_picking__effective_shipment_date'))]"/>
+<!--
             <field name="filter_domain" eval="[['picking_type_code','=','outgoing']]"/>
+-->
             <field name="state">code</field>
             <field name="code">
 record.change_so_date_done()

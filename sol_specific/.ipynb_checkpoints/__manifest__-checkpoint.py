@@ -26,6 +26,7 @@
         #'security/ir.model.access.csv',
         'views/purchase_order_views.xml',
         'views/sale_order_views.xml',
+        'views/stock_picking_views.xml',
         'action/purchase_action.xml',
         'action/sale_action.xml',
         #'views/templates.xml',

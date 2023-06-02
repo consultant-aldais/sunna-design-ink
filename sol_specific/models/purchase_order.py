@@ -10,7 +10,7 @@ class PurchaseOrder(models.Model):
     # SOL_2023.01 - DEV-02-MO-PO-01 : L'estimate date est un champs lié à l'estimate date de la livraison  ou de la première livraision s'il y en a plusieur
     scheduled_date = fields.Date( string="Estimated date")
     # SOL_2023.01 - DEV-02-MO-PO-02 : L'effective date est un champs lié à l'effective date de la livraison  ou de la première livraision s'il y en a plusieur
-    date_done = fields.Date( string="Effective date")
+    date_done = fields.Date( string="Effective shipment date")
 
 
 class StockPicking(models.Model):
@@ -24,6 +24,5 @@ class StockPicking(models.Model):
     #SOL_2023.01 - DEV-02-AC-01-02 : Purchase_order.py > StockPicking > change_po_date_done(self)
     #A partir d'un transfert ""copier"" son effective date dans le PO associé "
     def change_po_date_done(self):
-        if self.purchase_id.date_done == False:
-            self.purchase_id.date_done = self.date_done
+        self.purchase_id.date_done = self.effective_shipment_date
         

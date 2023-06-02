@@ -8,8 +8,6 @@
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='pricelist_id']" position="before">
-                    <!-- SOL_2023.01 - DEV-03-VU-01-01 : Ajouter estimate date dans le form --> 
-                    <field name="scheduled_date"/>
                     <!-- SOL_2023.01 - DEV-03-VU-01-02 : Ajouter effective date dans le form --> 
                     <field name="date_done"/>
                 </xpath>
