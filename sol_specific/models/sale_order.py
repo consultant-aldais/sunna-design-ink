@@ -2,7 +2,7 @@
 
 from odoo import models, fields, api
 import logging
-
+import datetime
 _logger = logging.getLogger(__name__)
 
 class SaleOrder(models.Model):
@@ -24,15 +24,37 @@ class StockPicking(models.Model):
     effective_shipment_date = fields.Date( string="Effective shipment date")
 
     #" SOL_2023.01 -  DEV-03-AC-01-01 : sale_order.py > StockPicking > change_so_schedule_date(self) A partir d'un transfert ""copié"" sa schedule date dans le PO associé "
+     # SOL_2023.01 -  DEV-03-MO-SO-03 :  Dans le cas où il y ait plusieurs étapes de transfert (exemple avec ORD050764) avec des Schedule date différentes, l’Estimated Ship Date qui apparait dans la vue liste doit être la date la plus éloignée,
     def change_so_scheduled_date(self):  
+        aged_effective_date = datetime.datetime(2000, 1, 1)
         _logger.info('------------------------')
-        _logger.info('change_so_scheduled_date %s et %s', self.sale_id, self.scheduled_date)
+        _logger.info('change_so_date_shedule')
         _logger.info('------------------------')
-        self.sale_id.scheduled_date = self.scheduled_date
+        for transfert in self.sale_id.picking_ids:
+            _logger.info('------------------------')
+            _logger.info('change_so_date_schedule %s et %s', transfert.scheduled_date, aged_effective_date)
+            _logger.info('------------------------')
+            if (transfert.scheduled_date is not False):
+                if (transfert.scheduled_date > aged_effective_date):
+                    aged_effective_date = transfert.scheduled_date
+        self.sale_id.scheduled_date = aged_effective_date
+        #self.sale_id.scheduled_date = self.scheduled_date
     
     #" SOL_2023.01 -  DEV-03-AC-01-02 : sale_order.py > StockPicking > change_so_date_done(self) A partir d'un transfert ""copier"" son effective date dans le PO associé "
+    # SOL_2023.01 -  DEV-03-MO-SO-04 :  Dans le cas où il y ait plusieurs étapes de transfert (exemple avec ORD050764) avec 
+    #des    effective ship date différentes, l’effective ship Date qui apparait dans la vue liste doit être la date la plus 
+    #éloignée
     def change_so_date_done(self):
+        aged_effective_date = datetime.date(2000, 1, 1)
         _logger.info('------------------------')
-        _logger.info('change_so_date_done %s et %s', self.scheduled_date, self.effective_shipment_date)
+        _logger.info('change_so_date_done')
         _logger.info('------------------------')
-        self.sale_id.date_done = self.effective_shipment_date
+        for transfert in self.sale_id.picking_ids:
+            _logger.info('------------------------')
+            _logger.info('change_so_date_done %s et %s', transfert.effective_shipment_date, aged_effective_date)
+            _logger.info('------------------------')
+            if (transfert.effective_shipment_date is not False):
+                if (transfert.effective_shipment_date > aged_effective_date):
+                    aged_effective_date = transfert.effective_shipment_date
+        self.sale_id.date_done = aged_effective_date
+        #self.sale_id.date_done = self.effective_shipment_date
