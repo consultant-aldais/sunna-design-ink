@@ -6,7 +6,8 @@
             <field name="model">stock.picking</field>
             <field name="inherit_id" ref="stock.view_picking_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='date_done']" position="after">
+                <!-- SOL_2023.01 -  DEV-02-VU-02-02 : Masuqer le champs effective date dans les transfert-->
+                <xpath expr="//field[@name='date_done']" position="replace">
                       <!--SOL_2023.01 -  DEV-02-VU-02-01 : POssibilité modification effective date -->
                     <field name="effective_shipment_date"/>
                 </xpath>
