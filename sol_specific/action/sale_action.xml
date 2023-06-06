@@ -15,7 +15,7 @@ L'action ne se déclenche que pour les livraisons" -->
 record.change_so_scheduled_date()
             </field>
         </record>
-               <!-- " SOL_2023.01 -  DEV-03-AC-02-03 : Création d'une action automatisée Z_AA_Update of the sale order scheduled date
+            <!-- " SOL_2023.01 -  DEV-03-AC-02-03 : Création d'une action automatisée Z_AA_Update of the sale order scheduled date
 L'action se décelnche lorque la scheduled date est modifié dans la livraison
 L'action ne se déclenche que pour les livraisons" -->
         <record id="sale_order_schedule_date_update_on_write" model="base.automation">

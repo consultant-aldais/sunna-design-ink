@@ -9,7 +9,7 @@ L'action ne se déclenche que pour les réceptions"-->
             <field name="trigger">on_write</field>
             <field name="active" eval="True"/>
             <field name="trigger_field_ids" eval="[(4, ref('stock.field_stock_picking__scheduled_date'))]"/>
-            <field name="filter_domain" eval="[['picking_type_code','=','incoming']]"/>
+            <!-- <field name="filter_domain" eval="[['picking_type_code','=','incoming']]"/> -->
             <field name="state">code</field>
             <field name="code">
 record.change_po_scheduled_date()
@@ -24,7 +24,7 @@ L'action ne se déclenche que pour les réceptions"-->
             <field name="trigger">on_write</field>
             <field name="active" eval="True"/>
             <field name="trigger_field_ids" eval="[(4, ref('sol_specific.field_stock_picking__effective_shipment_date'))]"/>
-            <field name="filter_domain" eval="[['picking_type_code','=','incoming']]"/>
+            <!-- <field name="filter_domain" eval="[['picking_type_code','=','incoming']]"/> -->
             <field name="state">code</field>
             <field name="code">
 record.change_po_date_done()
