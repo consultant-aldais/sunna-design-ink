@@ -58,3 +58,10 @@ class StockPicking(models.Model):
                     aged_effective_date = transfert.effective_shipment_date
         self.sale_id.date_done = aged_effective_date
         #self.sale_id.date_done = self.effective_shipment_date
+    
+    #     " SOL_2023.01 -  DEV-03-AC-02-04 : Création d'une action automatisée Z_AA_Update effective shipment date
+    # L'action se décelnche lorque l'effective date est modifié dans la livraison
+    # L'action se décelnche pour tous les type de livraison"
+    def copy_date_done_effective_date(self):
+        if (self.effective_shipment_date is False):
+            self.effective_shipment_date = self.date_done 
