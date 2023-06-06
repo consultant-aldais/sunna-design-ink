@@ -8,7 +8,8 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='date_order']" position="after">
                      <!-- SOL_2023.01 - DEV-O2-VU-01-02 : Ajouter effective date dans le form -->
-                    <field name="date_done"/>
+                     <!--  SOL_2023.01 - DEV-02-VU-01-03 : Effective date doit être masqué si c'est une RFQ-->
+                    <field name="date_done" attrs="{'invisible': [('state','!=','purchase')]}" />
                 </xpath>
             </field>
         </record>
