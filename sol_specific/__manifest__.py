@@ -7,6 +7,9 @@
 
     'description': """
         Specific development realized only for sol problematics
+        Release:
+        2023.01 : Adapt effective date management
+        2023.02 : Change Standard header and footer
     """,
 
     'author': "Aldais",
@@ -16,7 +19,7 @@
     # Check https://github.com/odoo/odoo/blob/13.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Uncategorized',
-    'version': 'SOL.2023.1',
+    'version': 'SOL.2023.2',
 
     # any module necessary for this one to work correctly
     'depends': ['base','purchase'],
@@ -29,6 +32,7 @@
         'views/stock_picking_views.xml',
         'action/purchase_action.xml',
         'action/sale_action.xml',
+        'report/external_back_ground_inherited.xml',
         #'views/templates.xml',
     ],
     # only loaded in demonstration mode
