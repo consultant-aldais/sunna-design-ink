@@ -9,7 +9,7 @@
         Specific development realized only for sol problematics
         Release:
         2023.01 : Adapt effective date management
-        2023.02 : Change Standard header and footer
+        2023.02 : Change Standard header and footer / uninstall sh_leave
     """,
 
     'author': "Aldais",
