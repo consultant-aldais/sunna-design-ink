@@ -1,26 +1,5 @@
 <odoo>
     <data>
-        <template inherit_id="web.external_layout_background" id="sol_specific.external_layout_background_inherited_2023_02">
-            <!-- SOL_2023.02-DEV-01-CO-GS-01-Changer le header:
-            Remit-to:
-            Sunna Inc
-            990 Biscayne BLVD Office 701
-            MiamiFlorida (US)33132
-            United States
-            -->
-            <xpath expr="//div[@class='float-left company_address']/div" position="before">
-                  <span>Remit-to : </span>
-            </xpath>
 
-            <!-- " SOL_2023.02-DEV-01-CO-GS-03-Changer le footer:
-            Sunna Design, Inc.
-            251 Little fall drive
-            Wilmington, DE 19808  United states
-            -->
-            <xpath expr="//ul[@class='list-inline']" position="before">
-                      <span style="font-size:12px"> Sunna Design, incorporated in 251 Little fall drive, Wilmington, DE 19808 under corporate ID 7703152</span>
-            </xpath>
-  
-        </template>
     </data>
 </odoo>
