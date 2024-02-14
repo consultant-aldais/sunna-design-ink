@@ -2,7 +2,7 @@
     <data>
         <!-- " SOL_2023.01 -  DEV-03-AC-02-01 : Création d'une action automatisée Z_AA_Update of the sale order scheduled date
 L'action se décelnche lorque le sale_id est ajouté dans la livraison
-L'action ne se déclenche que pour les livraisons" -->
+L'action ne se déclenche que pour les livraisons"
         <record id="sale_order_schedule_date_update_on_create" model="base.automation">
             <field name="name">Z_AA_Update of the sale order scheduled date - on_create</field>
             <field name="model_id" ref="sol_specific.model_stock_picking"/>
@@ -15,44 +15,38 @@ L'action ne se déclenche que pour les livraisons" -->
 record.change_so_scheduled_date()
             </field>
         </record>
-            <!-- " SOL_2023.01 -  DEV-03-AC-02-03 : Création d'une action automatisée Z_AA_Update of the sale order scheduled date
+            " SOL_2023.01 -  DEV-03-AC-02-03 : Création d'une action automatisée Z_AA_Update of the sale order scheduled date
 L'action se décelnche lorque la scheduled date est modifié dans la livraison
-L'action ne se déclenche que pour les livraisons" -->
+L'action ne se déclenche que pour les livraisons"
         <record id="sale_order_schedule_date_update_on_write" model="base.automation">
             <field name="name">Z_AA_Update of the sale order scheduled date - on_write</field>
             <field name="model_id" ref="sol_specific.model_stock_picking"/>
             <field name="trigger">on_write</field>
             <field name="active" eval="True"/>
             <field name="trigger_field_ids" eval="[(6,0, [ref('stock.field_stock_picking__scheduled_date'), ref('stock.field_stock_picking__scheduled_date')] )]"/>
-<!--
-            <field name="filter_domain" eval="[['picking_type_code','=','outgoing']]"/>
--->
             <field name="state">code</field>
             <field name="code">
 record.change_so_scheduled_date()
             </field>
         </record>
-        <!--" SOL_2023.01 -  DEV-03-AC-02-02 : Création d'une action automatisée Z_AA_Update of the sale order effective date
+        " SOL_2023.01 -  DEV-03-AC-02-02 : Création d'une action automatisée Z_AA_Update of the sale order effective date
 L'action se décelnche lorque la date_done  est mise à jours dans la livraison
-L'action ne se déclenche que pour les livraisons"-->
+L'action ne se déclenche que pour les livraisons"
         <record id="sale_order_effective_date_update" model="base.automation">
             <field name="name">Z_AA_Update of the sale order effective date</field>
             <field name="model_id" ref="sol_specific.model_stock_picking"/>
             <field name="trigger">on_write</field>
             <field name="active" eval="True"/>
             <field name="trigger_field_ids" eval="[(4, ref('sol_specific.field_stock_picking__effective_shipment_date'))]"/>
-<!--
-            <field name="filter_domain" eval="[['picking_type_code','=','outgoing']]"/>
--->
             <field name="state">code</field>
             <field name="code">
 record.change_so_date_done()
             </field>
         </record>
         
-        <!-- " SOL_2023.01 -  DEV-03-AC-02-04 : Création d'une action automatisée Z_AA_Update effective shipment date
+         " SOL_2023.01 -  DEV-03-AC-02-04 : Création d'une action automatisée Z_AA_Update effective shipment date
         L'action se décelnche lorque l'effective date est modifié dans la livraison
-        L'action se décelnche pour tous les type de livraison" -->
+        L'action se décelnche pour tous les type de livraison"
         <record id="sale_order_copy_effective_date" model="base.automation">
             <field name="name">Z_AA_Update of effective date based on date done</field>
             <field name="model_id" ref="sol_specific.model_stock_picking"/>
@@ -64,6 +58,6 @@ record.change_so_date_done()
 record.copy_date_done_effective_date()
             </field>
         </record>
-        
+        -->
     </data>
 </odoo>

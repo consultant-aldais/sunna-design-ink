@@ -1,34 +1,36 @@
 <odoo>
     <data>
+        
         <!--" SOL_2023.01 - DEV-02-AC-02-01 : Création d'une action automatisée Z_AA_Update of the purchase order scheduled date.
 L'action se déclenche lorque la schedule_date  est mise à jours dans la réception
-L'action ne se déclenche que pour les réceptions"-->
+L'action ne se déclenche que pour les réceptions"
         <record id="purchase_order_schedule_date_update" model="base.automation">
             <field name="name">Z_AA_Update of the purchase order scheduled date</field>
             <field name="model_id" ref="sol_specific.model_stock_picking"/>
             <field name="trigger">on_write</field>
             <field name="active" eval="True"/>
             <field name="trigger_field_ids" eval="[(4, ref('stock.field_stock_picking__scheduled_date'))]"/>
-            <!-- <field name="filter_domain" eval="[['picking_type_code','=','incoming']]"/> -->
+            
             <field name="state">code</field>
             <field name="code">
 record.change_po_scheduled_date()
             </field>
         </record>
-        <!--" SOL_2023.01 - DEV-02-AC-02-02 : Création d'une action automatisée Z_AA_Update of the purchase order effective date
+        " SOL_2023.01 - DEV-02-AC-02-02 : Création d'une action automatisée Z_AA_Update of the purchase order effective date
 L'action se déclenche lorque la date_done  est mise à jours dans la réception
-L'action ne se déclenche que pour les réceptions"-->
+L'action ne se déclenche que pour les réceptions"
         <record id="purchase_order_effective_date_update" model="base.automation">
             <field name="name">Z_AA_Update of the purchase order effective date</field>
             <field name="model_id" ref="sol_specific.model_stock_picking"/>
             <field name="trigger">on_write</field>
             <field name="active" eval="True"/>
             <field name="trigger_field_ids" eval="[(4, ref('sol_specific.field_stock_picking__effective_shipment_date'))]"/>
-            <!-- <field name="filter_domain" eval="[['picking_type_code','=','incoming']]"/> -->
+            
             <field name="state">code</field>
             <field name="code">
 record.change_po_date_done()
             </field>
         </record>
+        -->
     </data>
 </odoo>
