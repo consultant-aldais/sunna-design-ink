@@ -19,7 +19,7 @@
     # Check https://github.com/odoo/odoo/blob/13.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Uncategorized',
-    'version': 'SOL.2023.2',
+    'version': 'SOL.2023.2  - V17',
 
     # any module necessary for this one to work correctly
     'depends': ['base','purchase'],
