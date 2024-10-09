@@ -32,7 +32,8 @@
         'views/stock_picking_views.xml',
         #'action/purchase_action.xml',
         #'action/sale_action.xml',
-        #'report/external_back_ground_inherited.xml',
+        'report/external_back_ground_inherited.xml',
+        'report/document_tax_totals.xml',
         #'views/templates.xml',
     ],
     # only loaded in demonstration mode
