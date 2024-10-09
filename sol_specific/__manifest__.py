@@ -34,6 +34,7 @@
         #'action/sale_action.xml',
         'report/external_back_ground_inherited.xml',
         'report/document_tax_totals.xml',
+        'report/invoice.xml',
         #'views/templates.xml',
     ],
     # only loaded in demonstration mode
