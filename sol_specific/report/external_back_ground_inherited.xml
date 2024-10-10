@@ -1,6 +1,6 @@
 <odoo>
     <data>
-        <template inherit_id="web.external_layout_striped" id="sol_specific.external_layout_background_inherited_2023_02_V17">
+        <template inherit_id="web.external_layout_striped" id="sol_specific.external_layout_background_inherited_2023_02">
             <!-- SOL_2023.02-DEV-01-CO-GS-01-Changer le header:
             Remit-to:
             Sunna Inc
