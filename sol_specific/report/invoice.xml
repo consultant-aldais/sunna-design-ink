@@ -222,10 +222,11 @@
                         <br/>
                     </p>
                 </div>
+                <p t-if="o.company_id" style="page-break-after:always;"/>
                 <p t-if="o.company_id">
                     <span t-field="o.company_id.x_studio_bank"/>
                 </p>
-                <p t-if="o.company_id" style="page-break-after:always;"/>
+                
                 <br/>
                 <p>
                     <div>
