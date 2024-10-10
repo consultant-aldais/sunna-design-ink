@@ -9,7 +9,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='pricelist_id']" position="before">
                     <!-- SOL_2023.01 - DEV-03-VU-01-02 : Ajouter effective date dans le form ne s'affiche que si c'est un sale order --> 
-                    <field name="date_done" attrs="{'invisible': [('state','!=','sale')]}"/>
+                    <field name="date_done" invisible ="[('state','!=','sale')]"/>
                 </xpath>
             </field>
         </record>

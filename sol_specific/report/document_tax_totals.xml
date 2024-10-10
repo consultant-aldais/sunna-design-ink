@@ -1,0 +1,10 @@
+<odoo>
+    <template id="inherit_document_tax_totals_template" inherit_id="account.document_tax_totals_template">
+        <xpath expr="//strong[@t-out=&quot;subtotal['name']&quot;]" position="replace">
+            <strong t-if="subtotal['name'] == 'Untaxed Amount'">Subtotal</strong>
+            <strong t-else="subtotal['name']">
+                <t t-esc="subtotal['name']"/>
+            </strong>
+        </xpath>
+    </template>
+</odoo>
